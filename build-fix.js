@@ -28,5 +28,15 @@ for (const [from, to] of replacements) {
   }
 }
 
+const socialMarker = 'https://www.instagram.com/phil_director/';
+if (!html.includes(socialMarker)) {
+  const venueLink = '<a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Hospital+Convention+Centre" target="_blank" rel="noopener">Venue</a>';
+  const socialLinks = `${venueLink}\n          <a href="https://www.instagram.com/phil_director/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Philip Karanja on Instagram">Instagram</a>\n          <a href="https://m.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener noreferrer" aria-label="Philip Karanja on YouTube">YouTube</a>`;
+  if (html.includes(venueLink)) {
+    html = html.replace(venueLink, socialLinks);
+    changed += 1;
+  }
+}
+
 fs.writeFileSync(file, html);
-console.log(`Applied ${changed} copy fixes to ${file}.`);
+console.log(`Applied ${changed} site fixes to ${file}.`);
