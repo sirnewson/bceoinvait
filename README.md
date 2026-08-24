@@ -29,5 +29,8 @@ The workflow runs `build-fix.js` itself before uploading, so the deployed page
 carries the copy fixes even though the commit made by `apply-copy-fixes.yml`
 cannot trigger another workflow run.
 
-If the Netlify project is later linked to this repo through Netlify's own Git
-integration, delete this workflow — otherwise both will deploy on every push.
+This workflow is the **single** deploy path. Do not also connect the project
+through Netlify's own Git integration: both would fire on every push to `main`,
+racing two production deploys against each other. If the project is currently
+linked in the Netlify UI, disconnect it (Site configuration → Build & deploy →
+Continuous deployment → Manage repository) before merging.
