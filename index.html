@@ -570,6 +570,46 @@ h2.sec em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(-
   color:rgba(255,255,255,.8);background:rgba(255,255,255,.02);transition:all .3s var(--ease)}
 .chip:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 
+/* ---------- The show / YouTube channel ---------- */
+.show{padding:clamp(3rem,7vw,5.5rem) 0}
+.show-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.6rem,4vw,3.2rem);align-items:center;margin-top:2.4rem}
+@media(max-width:900px){.show-grid{grid-template-columns:1fr;gap:2rem}}
+.show-copy p{color:var(--muted);font-size:clamp(.95rem,2vw,1.04rem);line-height:1.75;margin-bottom:1.1rem;max-width:56ch}
+.show-copy p strong{color:#fff;font-weight:600}
+.show-copy p .hl-g{color:var(--green);font-weight:600}
+.show-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:1.7rem}
+.btn-yt{background:var(--red);color:#fff;box-shadow:0 16px 38px -14px rgba(235,0,46,.75)}
+.btn-yt:hover{transform:translateY(-3px);box-shadow:0 24px 50px -14px rgba(235,0,46,.95)}
+.btn-yt svg{width:17px;height:17px;fill:currentColor}
+.show-handle{font-family:var(--display);font-size:.62rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted-2)}
+
+/* self-contained "player" card, no third-party requests */
+.yt-card{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(165deg,var(--ink-3),var(--ink-2));
+  transition:transform .35s var(--ease),border-color .35s ease,box-shadow .35s ease;display:block}
+.yt-card:hover{transform:translateY(-6px);border-color:rgba(235,0,46,.45);
+  box-shadow:0 32px 64px -32px rgba(235,0,46,.55)}
+.yt-screen{position:relative;aspect-ratio:16/9;display:grid;place-items:center;
+  background:radial-gradient(80% 120% at 50% 46%,rgba(98,209,0,.16) 0%,transparent 62%),
+             linear-gradient(180deg,#0C120D,#07090A)}
+.yt-screen::before{content:'';position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:100% 3px}
+.yt-tag{position:absolute;top:1rem;left:1rem;display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--display);font-size:.5rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;
+  color:#fff;background:var(--red);border-radius:100px;padding:.4rem .75rem}
+.yt-play{position:relative;z-index:2;width:clamp(58px,9vw,74px);height:clamp(40px,6.3vw,52px);
+  border-radius:16px;background:var(--red);display:grid;place-items:center;
+  box-shadow:0 18px 40px -14px rgba(235,0,46,.85);transition:transform .35s var(--ease)}
+.yt-play svg{width:40%;height:40%;fill:#fff}
+.yt-card:hover .yt-play{transform:scale(1.08)}
+.yt-title{position:absolute;left:1.15rem;right:1.15rem;bottom:1.5rem;z-index:2}
+.yt-title b{display:block;font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(1.05rem,2.6vw,1.4rem);text-transform:uppercase;line-height:1}
+.yt-title span{display:block;font-size:.74rem;color:var(--muted-2);margin-top:.4rem}
+.yt-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.09);z-index:3}
+.yt-bar i{display:block;height:100%;width:34%;background:var(--red)}
+
 /* ---------- Quote band ---------- */
 .quote{padding:clamp(3.5rem,8vw,6rem) 0;text-align:center;position:relative}
 .quote blockquote{font-family:var(--serif);font-weight:300;font-style:italic;
@@ -1072,6 +1112,44 @@ footer img{height:34px;width:auto}
     </div>
   </section>
 
+
+  <!-- THE SHOW -->
+  <section class="show">
+    <div class="shell">
+      <p class="kicker rise">The Show</p>
+      <h2 class="sec rise d1">Where the conversation <em>started</em></h2>
+
+      <div class="show-grid">
+        <div class="show-copy rise d2">
+          <p><span class="hl-g">There is divine beauty in learning.</span> Learning from books, from life, and from personal and other people's experiences.</p>
+          <p><strong>Becoming CEO</strong> is an interactive show by Philit TV's very own CEO, <strong>Phil Karanja</strong>, where he converses with other CEOs, tackling various topics around money, business, entrepreneurship and much more.</p>
+          <p>Join us in this journey and pick as many nuggets of wisdom as you can.</p>
+
+          <div class="show-cta">
+            <a class="btn btn-yt" href="https://www.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+              Watch The Show
+            </a>
+            <a class="btn btn-ghost" href="https://www.youtube.com/@OfficialPhilKaranja?sub_confirmation=1" target="_blank" rel="noopener">
+              Subscribe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <span class="show-handle">@OfficialPhilKaranja</span>
+          </div>
+        </div>
+
+        <a class="yt-card rise d3" href="https://www.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener" aria-label="Watch Becoming CEO on YouTube">
+          <div class="yt-screen">
+            <span class="yt-tag">Episodes</span>
+            <span class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="yt-title"><b>Becoming CEO</b><span>Conversations with the people who built it</span></span>
+            <span class="yt-bar"><i></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- QUOTE -->
   <section class="quote">
     <div class="shell">
@@ -1114,7 +1192,7 @@ footer img{height:34px;width:auto}
           <a href="https://becomingceo.africa/tickets" target="_blank" rel="noopener">Tickets</a>
           <a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Hospital+Convention+Centre" target="_blank" rel="noopener">Venue</a>
           <a href="https://www.instagram.com/phil_director/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Philip Karanja on Instagram">Instagram</a>
-          <a href="https://m.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener noreferrer" aria-label="Philip Karanja on YouTube">YouTube</a>
+          <a href="https://www.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener noreferrer" aria-label="Becoming CEO on YouTube">YouTube</a>
         </nav>
         <div class="f-note">
           <span>© <span id="yr">2026</span> Becoming CEO. All rights reserved.</span>
