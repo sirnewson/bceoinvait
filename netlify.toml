@@ -13,3 +13,8 @@
   for = "/og.jpg"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/denri.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
