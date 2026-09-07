@@ -673,6 +673,12 @@ footer{border-top:1px solid var(--line);padding:2.8rem 0;background:rgba(0,0,0,.
 footer img{height:34px;width:auto}
 .f-links{display:flex;gap:1.6rem;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
 .f-links a:hover{color:var(--green)}
+.f-social{display:flex;align-items:center;gap:.55rem}
+.f-social a{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);color:var(--muted);
+  transition:color .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease)}
+.f-social a:hover{color:var(--green);border-color:rgba(98,209,0,.45);background:rgba(98,209,0,.12)}
+.f-social svg{width:16px;height:16px}
 .f-note{width:100%;font-size:.74rem;color:var(--muted-2);border-top:1px solid var(--line);
   padding-top:1.5rem;margin-top:.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
@@ -1193,6 +1199,14 @@ footer img{height:34px;width:auto}
           <a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Hospital+Convention+Centre" target="_blank" rel="noopener">Venue</a>
           <a href="https://www.instagram.com/phil_director/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Philip Karanja on Instagram">Instagram</a>
           <a href="https://www.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener noreferrer" aria-label="Becoming CEO on YouTube">YouTube</a>
+        </nav>
+        <nav class="f-social" aria-label="Follow Philip Karanja">
+          <a href="https://www.instagram.com/phil_director/" target="_blank" rel="noopener" aria-label="Philip Karanja on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@OfficialPhilKaranja" target="_blank" rel="noopener" aria-label="Philip Karanja on YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
         </nav>
         <div class="f-note">
           <span>© <span id="yr">2026</span> Becoming CEO. All rights reserved.</span>
