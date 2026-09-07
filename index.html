@@ -205,6 +205,29 @@ a{color:inherit;text-decoration:none}
   animation:riseIn .9s var(--ease) 1.5s forwards;
   transition:transform .3s var(--ease),box-shadow .3s ease;
 }
+/* --- Trust strip on the splash --- */
+.trust{
+  margin-top:2rem;display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  opacity:0;transform:translateY(10px);
+  animation:riseIn 1s var(--ease) 1.15s forwards;
+}
+.t-badge{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--display);font-size:.54rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--green);background:rgba(98,209,0,.07);
+  border:1px solid rgba(98,209,0,.34);border-radius:100px;padding:.45rem .85rem;
+}
+.t-badge svg{width:12px;height:12px}
+.t-items{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem .6rem;
+  font-size:.7rem;line-height:1.5;color:rgba(255,255,255,.34);text-align:center;
+}
+.t-items span:not([hidden]) ~ span::before{
+  content:'·';margin-right:.6rem;color:rgba(255,255,255,.2)
+}
+@media(max-width:520px){.trust{margin-top:1.5rem}.t-items{font-size:.65rem}}
+@media(max-height:730px){.trust{margin-top:1.25rem}}
+
 /* --- Countdown on the envelope splash --- */
 .curtain-cd{
   margin-top:2.1rem;text-align:center;
@@ -238,7 +261,7 @@ a{color:inherit;text-decoration:none}
 .open-btn:active{transform:translateY(0)}
 .open-btn svg{width:14px;height:14px;animation:nudge 1.8s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
-#curtain.opening .open-btn,#curtain.opening .curtain-kicker,#curtain.opening .curtain-cd{opacity:0;transform:translateY(-10px);transition:all .5s var(--ease)}
+#curtain.opening .open-btn,#curtain.opening .curtain-kicker,#curtain.opening .curtain-cd,#curtain.opening .trust{opacity:0;transform:translateY(-10px);transition:all .5s var(--ease)}
 
 /* white flash as the letter "becomes" the page */
 .flash{position:fixed;inset:0;z-index:101;background:#fff;opacity:0;pointer-events:none;transition:opacity .35s ease}
@@ -732,6 +755,18 @@ footer img{height:34px;width:auto}
     Open your invitation
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </button>
+
+  <div class="trust">
+    <span class="t-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg>
+      Protected &amp; Safe
+    </span>
+    <span class="t-items">
+      <span id="tTls" hidden>Secure encrypted connection</span>
+      <span>No personal data collected</span>
+      <span>Official Becoming CEO invitation</span>
+    </span>
+  </div>
 </div>
 <div class="flash" id="flash"></div>
 
@@ -1250,6 +1285,12 @@ footer img{height:34px;width:auto}
     setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
   });
 
+
+  /* ---------- Splash trust strip ---------- */
+  if (location.protocol === "https:"){
+    var tls = document.getElementById("tTls");
+    if (tls) tls.hidden = false;
+  }
 
   /* ---------- Guest video lightbox ---------- */
   var vbox = document.getElementById("vbox");
